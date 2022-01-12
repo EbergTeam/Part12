@@ -1,0 +1,28 @@
+﻿@using Part12.ModelsViews
+@using Part12.Models
+@model IndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<form class="form-inline">
+    <label>Выберите компанию:</label>
+    <select name="companyId" class="form-control">
+        @foreach (CompanyModels comp in Model.Companies)
+        {
+            <option value="@comp.Id">@comp.Name</option>
+        }
+    </select>
+    <input type="submit"/>
+</form>
+<br/>
+<table class="table">
+    @foreach (Phone p in Model.Phones)
+    {
+        <tr><td>@p.Name</td><td>@p.Manufacturer?.Name</td><td>@p.Price</td></tr>
+    }
+</table>

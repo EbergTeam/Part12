@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "AddPhone";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<form method="post">
+    @for (int i = 0; i < 3; i++)
+    {
+        <div class="phone">
+            <h3>Модель № @(i+1)</h3>
+            <p>
+                <label>Название</label><br />
+                <input type="text" name="phones[@i].Name" />
+            </p>
+            <p>
+                <label>Цена</label><br />
+                <input type="number" name="phones[@i].Price" />
+            </p>
+            <p>
+                <label>Производитель</label><br />
+                <input type="text" name="phones[@i].Manufacturer.Name" />
+            </p>
+        </div>
+    }
+
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
